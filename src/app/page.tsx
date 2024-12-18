@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link"; // server side rendering
 import Image from "next/image";
@@ -14,7 +14,9 @@ export default function Home() {
             and get your products delivered straight to your doorstep.
           </p>
 
-          <Link href="/products" className="btn btn-default">Start shopping</Link>
+          <Link href="/products" className="btn btn-default">
+            Start shopping
+          </Link>
         </div>
         <Image
           src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_700/v1607770215/react-tutorial/supermarket/home.jpg"

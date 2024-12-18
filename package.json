@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier:fix": "prettier --write .",
+    "prettier": "prettier --check ."
   },
   "dependencies": {
     "clsx": "2.1.1",
@@ -20,6 +22,7 @@
     "@types/react-dom": "18.3.5",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.20",
+    "prettier": "3.4.2",
     "typescript": "5.7.2"
   }
 }

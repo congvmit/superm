@@ -37,7 +37,9 @@ export default function Product(props: { details: TProduct }) {
 
       <div className="product-checkout">
         <div>
-          <Button outline className="product-delete">x</Button>
+          <Button outline className="product-delete">
+            x
+          </Button>
         </div>
         <Button outline>${details.price}</Button>
       </div>

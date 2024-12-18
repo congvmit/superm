@@ -14,7 +14,7 @@ export default function Input(props: InputProps) {
     {
       input: true,
     },
-    className
+    className,
   );
 
   return (

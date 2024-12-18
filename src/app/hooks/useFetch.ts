@@ -6,8 +6,8 @@ export default function useFetch(baseUrl: string) {
   function get(url: string) {
     return new Promise((resolve, reject) => {
       fetch(baseUrl + url)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (!data) {
             setLoading(false);
             return reject(data);
@@ -15,7 +15,7 @@ export default function useFetch(baseUrl: string) {
           setLoading(false);
           resolve(data);
         })
-        .catch(error => {
+        .catch((error) => {
           setLoading(false);
           reject(error);
         });
@@ -27,12 +27,12 @@ export default function useFetch(baseUrl: string) {
       fetch(baseUrl + url, {
         method: "post",
         headers: {
-            "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (!data) {
             setLoading(false);
             return reject(data);
@@ -40,7 +40,7 @@ export default function useFetch(baseUrl: string) {
           setLoading(false);
           resolve(data);
         })
-        .catch(error => {
+        .catch((error) => {
           setLoading(false);
           reject(error);
         });
@@ -48,4 +48,4 @@ export default function useFetch(baseUrl: string) {
   }
 
   return { get, post, loading };
-};
+}
