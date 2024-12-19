@@ -1,11 +1,13 @@
-"use client";
+"use client"
+
 import Product from "../components/Product";
-import type { TProduct } from "../components/Product";
+import { IProduct } from "../types/Product";
 import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import Loader from "../components/Loader";
+
 export default function ProductsPage() {
-  const [products, setProducts] = useState<TProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   const { get, loading } = useFetch(
     "https://react-tutorial-demo.firebaseio.com/",
@@ -14,7 +16,7 @@ export default function ProductsPage() {
   useEffect(() => {
     get("supermarket.json")
       .then((data): void => {
-        setProducts(data as TProduct[]);
+        setProducts(data as IProduct[]);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);

@@ -1,3 +1,5 @@
+'use client'
+
 export default function CartPage() {
   return (
     <div className="cart-layout">
