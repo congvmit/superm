@@ -11,5 +11,5 @@ module.exports = {
     ],
   },
   env: {},
-  output: 'standalone',
+  output: "standalone",
 };

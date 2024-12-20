@@ -3,9 +3,13 @@ import Button from "./Button";
 import Image from "next/image";
 import { IProduct } from "@/types/Product";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addProduct, removeProduct } from "@/store/cart";
 
 export default function Product(props: { details: IProduct }) {
   const { details } = props;
+
+  const dispatch = useDispatch();
   return (
     // Product Image
     <div className="product">
@@ -32,7 +36,19 @@ export default function Product(props: { details: IProduct }) {
 
       <div className="product-checkout">
         <div>
-          <Button outline className="product-delete">
+          <Button
+            outline
+            className="product-delete"
+            onClick={() =>
+              dispatch(
+                removeProduct({
+                  id: details.id,
+                  price_id: details.price_id,
+                  name: details.name,
+                })
+              )
+            }
+          >
             x
           </Button>
         </div>
