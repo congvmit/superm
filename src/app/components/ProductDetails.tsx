@@ -1,9 +1,9 @@
 "use client";
 import Button from "./Button";
 import Image from "next/image";
+import { IProduct } from "@/app/types/Product";
 
-
-export default function ProductDetail(props: { details: TProduct }) {
+export default function ProductDetail(props: { details: IProduct }) {
   const { details } = props;
   return (
     // Product Image

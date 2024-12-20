@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import Product from "../components/Product";
-import { IProduct } from "../types/Product";
+import Product from "@/app/components/Product";
+import { IProduct } from "@/app/types/Product";
 import { useEffect, useState } from "react";
-import useFetch from "../hooks/useFetch";
-import Loader from "../components/Loader";
+import useFetch from "@/app/hooks/useFetch";
+import Loader from "@/app/components/Loader";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<IProduct[]>([]);

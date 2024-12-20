@@ -1,7 +1,8 @@
 "use client";
 import Button from "./Button";
 import Image from "next/image";
-import { IProduct } from "../types/Product";
+import { IProduct } from "@/app/types/Product";
+import Link from "next/link";
 
 export default function Product(props: { details: IProduct }) {
   const { details } = props;
@@ -9,17 +10,19 @@ export default function Product(props: { details: IProduct }) {
     // Product Image
     <div className="product">
       <div className="product-image-container">
-        <Image
-          src={details.image}
-          width={100}
-          height={100}
-          className="product-image"
-          alt={details.name}
-          priority={true}
-        />
-        <div className="product-quantity-container">
-          <div className="product-quantity">0</div>
-        </div>
+        <Link href={`/product/${details.id}`}>
+          <Image
+            src={details.image}
+            width={100}
+            height={100}
+            className="product-image"
+            alt={details.name}
+            priority={true}
+          />
+          <div className="product-quantity-container">
+            <div className="product-quantity">0</div>
+          </div>
+        </Link>
       </div>
 
       <div className="product-info">
