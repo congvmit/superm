@@ -2,8 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
+import { cartCountSelector } from "@/store/cart";
+import { ICartState } from "@/types/Cart";
 
 export default function Navbar() {
+  const cart = useSelector((state: { cart: ICartState }) => state.cart);
+  const cartCount = cartCountSelector(cart);
+
   const pathname = usePathname();
   return (
     <nav className="navbar">
@@ -35,7 +41,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link href="/cart" className="nav-item nav-cart btn btn-accent">
-              Cart (0)
+              Cart ({cartCount})
             </Link>
           </li>
         </ul>

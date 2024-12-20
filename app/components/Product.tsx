@@ -45,14 +45,27 @@ export default function Product(props: { details: IProduct }) {
                   id: details.id,
                   price_id: details.price_id,
                   name: details.name,
-                })
+                }),
               )
             }
           >
             x
           </Button>
         </div>
-        <Button outline>${details.price}</Button>
+        <Button
+          outline
+          onClick={() =>
+            dispatch(
+              addProduct({
+                id: details.id,
+                price_id: details.price_id,
+                name: details.name,
+              }),
+            )
+          }
+        >
+          ${details.price}
+        </Button>
       </div>
     </div>
   );
