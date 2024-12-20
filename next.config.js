@@ -1,5 +1,5 @@
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images: {
     remotePatterns: [
@@ -11,4 +11,5 @@ module.exports = {
     ],
   },
   env: {},
+  output: 'standalone',
 };

@@ -1,7 +1,7 @@
 "use client";
 import Button from "./Button";
 import Image from "next/image";
-import { IProduct } from "@/app/types/Product";
+import { IProduct } from "@/types/Product";
 
 export default function ProductDetail(props: { details: IProduct }) {
   const { details } = props;

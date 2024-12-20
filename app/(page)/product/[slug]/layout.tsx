@@ -1,10 +1,10 @@
 "use client";
 
-import { IProductDetails } from "@/app/types/ProductDetails";
+import { IProductDetails } from "@/types/ProductDetails";
 import { useEffect, useState } from "react";
-import useFetch from "@/app/hooks/useFetch";
+import useFetch from "@/hooks/useFetch";
 import { useParams } from "next/navigation";
-import { OutletProvider } from "@/app/context/OutletContext";
+import { OutletProvider } from "@/context/OutletContext";
 import { ReactNode } from "react";
 
 export default function ProductPageLayout({

@@ -1,8 +1,8 @@
 "use client";
 
-import Button from "@/app/components/Button";
-import { useOutletContext } from "@/app/context/OutletContext";
-import { IProductDetails } from "@/app/types/ProductDetails";
+import Button from "@/components/Button";
+import { useOutletContext } from "@/context/OutletContext";
+import { IProductDetails } from "@/types/ProductDetails";
 
 export default function ProductDetailInfo() {
   const product = useOutletContext() as IProductDetails;

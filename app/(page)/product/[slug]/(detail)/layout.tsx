@@ -1,10 +1,10 @@
 "use client";
 
-import { IProductDetails } from "@/app/types/ProductDetails";
+import { IProductDetails } from "@/types/ProductDetails";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { usePathname } from "next/navigation";
-import { useOutletContext } from "@/app/context/OutletContext";
+import { useOutletContext } from "@/context/OutletContext";
 import Link from "next/link";
 
 import { ReactNode } from "react";
@@ -28,8 +28,8 @@ export default function ProductDetailTableLayout({
             width={125}
             height={125}
             className="product-details-image"
-            alt="product name here"
-            src={product.image || "/default-image.png"}
+            alt={product.name || "product"}
+            src={product.image || "/default.webp"}
             priority={true}
           />
         </div>
