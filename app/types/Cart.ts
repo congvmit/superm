@@ -16,3 +16,7 @@ export interface ICartProductAddPayload {
   name: string;
   price: number;
 }
+
+export interface ICartProductSearchPayload {
+  id: number;
+}

@@ -3,13 +3,17 @@ import Button from "./Button";
 import Image from "next/image";
 import { IProduct } from "@/types/Product";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
 import { addProduct, removeProduct } from "@/store/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { cartProductCountSelector } from "@/store/cart";
+import { ICartState } from "@/types/Cart";
 
 export default function Product(props: { details: IProduct }) {
   const { details } = props;
-
   const dispatch = useDispatch();
+  const cart = useSelector((state: { cart: ICartState }) => state.cart);
+  const cartProductCount = cartProductCountSelector(cart, { id: details.id });
+
   return (
     // Product Image
     <div className="product">
@@ -24,7 +28,7 @@ export default function Product(props: { details: IProduct }) {
             priority={true}
           />
           <div className="product-quantity-container">
-            <div className="product-quantity">0</div>
+            <div className="product-quantity">{cartProductCount}</div>
           </div>
         </Link>
       </div>
@@ -45,6 +49,7 @@ export default function Product(props: { details: IProduct }) {
                   id: details.id,
                   price_id: details.price_id,
                   name: details.name,
+                  price: details.price,
                 }),
               )
             }
@@ -60,6 +65,7 @@ export default function Product(props: { details: IProduct }) {
                 id: details.id,
                 price_id: details.price_id,
                 name: details.name,
+                price: details.price,
               }),
             )
           }

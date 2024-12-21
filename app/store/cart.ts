@@ -1,7 +1,11 @@
 "use client";
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICartState, ICartProductAddPayload } from "@/types/Cart";
+import {
+  ICartState,
+  ICartProductAddPayload,
+  ICartProductSearchPayload,
+} from "@/types/Cart";
 
 const initialState: ICartState = {
   items: [],
@@ -43,6 +47,14 @@ export const cartSlice = createSlice({
   },
 });
 
+const cartProductCountSelector = (
+  state: ICartState,
+  product: ICartProductSearchPayload,
+): number => {
+  const existingProduct = state.items.find((item) => item.id === product.id);
+  return existingProduct ? existingProduct.quantity : 0;
+};
+
 const cartCountSelector = (state: ICartState) => {
   return state.items.reduce((total, product) => total + product.quantity, 0);
 };
@@ -55,4 +67,4 @@ const cartValueSelector = (state: ICartState) => {
 };
 
 export const { addProduct, removeProduct } = cartSlice.actions;
-export { cartCountSelector, cartValueSelector };
+export { cartCountSelector, cartValueSelector, cartProductCountSelector };
