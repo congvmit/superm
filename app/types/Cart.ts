@@ -4,6 +4,7 @@ export interface ICart {
   name: string;
   quantity: number;
   price: number;
+  image: string;
 }
 
 export interface ICartState {
@@ -15,6 +16,7 @@ export interface ICartProductAddPayload {
   price_id: string;
   name: string;
   price: number;
+  image: string;
 }
 
 export interface ICartProductSearchPayload {

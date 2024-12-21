@@ -12,7 +12,9 @@ export default function Product(props: { details: IProduct }) {
   const { details } = props;
   const dispatch = useDispatch();
   const cart = useSelector((state: { cart: ICartState }) => state.cart);
-  const cartProductCount = cartProductCountSelector(cart, { id: details.id });
+  const cartProductQuantity = cartProductCountSelector(cart, {
+    id: details.id,
+  });
 
   return (
     // Product Image
@@ -28,7 +30,7 @@ export default function Product(props: { details: IProduct }) {
             priority={true}
           />
           <div className="product-quantity-container">
-            <div className="product-quantity">{cartProductCount}</div>
+            <div className="product-quantity">{cartProductQuantity}</div>
           </div>
         </Link>
       </div>
@@ -40,22 +42,25 @@ export default function Product(props: { details: IProduct }) {
 
       <div className="product-checkout">
         <div>
-          <Button
-            outline
-            className="product-delete"
-            onClick={() =>
-              dispatch(
-                removeProduct({
-                  id: details.id,
-                  price_id: details.price_id,
-                  name: details.name,
-                  price: details.price,
-                }),
-              )
-            }
-          >
-            x
-          </Button>
+          {cartProductQuantity > 0 && (
+            <Button
+              outline
+              className="product-delete"
+              onClick={() =>
+                dispatch(
+                  removeProduct({
+                    id: details.id,
+                    price_id: details.price_id,
+                    name: details.name,
+                    price: details.price,
+                    image: details.image,
+                  }),
+                )
+              }
+            >
+              x
+            </Button>
+          )}
         </div>
         <Button
           outline
@@ -66,6 +71,7 @@ export default function Product(props: { details: IProduct }) {
                 price_id: details.price_id,
                 name: details.name,
                 price: details.price,
+                image: details.image,
               }),
             )
           }

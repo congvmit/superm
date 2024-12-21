@@ -59,7 +59,7 @@ const cartCountSelector = (state: ICartState) => {
   return state.items.reduce((total, product) => total + product.quantity, 0);
 };
 
-const cartValueSelector = (state: ICartState) => {
+const cartTotalValueSelector = (state: ICartState) => {
   return state.items.reduce(
     (total, product) => total + product.price * product.quantity,
     0,
@@ -67,4 +67,4 @@ const cartValueSelector = (state: ICartState) => {
 };
 
 export const { addProduct, removeProduct } = cartSlice.actions;
-export { cartCountSelector, cartValueSelector, cartProductCountSelector };
+export { cartCountSelector, cartTotalValueSelector, cartProductCountSelector };
