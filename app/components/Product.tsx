@@ -1,20 +1,20 @@
-"use client";
-import Button from "./Button";
-import Image from "next/image";
-import { IProduct } from "@/types/Product";
-import Link from "next/link";
-import { addProduct, removeProduct } from "@/store/cart";
-import { useDispatch, useSelector } from "react-redux";
-import { cartProductCountSelector } from "@/store/cart";
-import { ICartState } from "@/types/Cart";
+"use client"
+import Button from "./Button"
+import Image from "next/image"
+import { IProduct } from "@/types/Product"
+import Link from "next/link"
+import { addProduct, removeProduct } from "@/store/cart"
+import { useDispatch, useSelector } from "react-redux"
+import { cartProductCountSelector } from "@/store/cart"
+import { ICartState } from "@/types/Cart"
 
 export default function Product(props: { details: IProduct }) {
-  const { details } = props;
-  const dispatch = useDispatch();
-  const cart = useSelector((state: { cart: ICartState }) => state.cart);
+  const { details } = props
+  const dispatch = useDispatch()
+  const cart = useSelector((state: { cart: ICartState }) => state.cart)
   const cartProductQuantity = cartProductCountSelector(cart, {
     id: details.id,
-  });
+  })
 
   return (
     // Product Image
@@ -30,7 +30,9 @@ export default function Product(props: { details: IProduct }) {
             priority={true}
           />
           <div className="product-quantity-container">
-            <div className="product-quantity">{cartProductQuantity}</div>
+            {cartProductQuantity > 0 && (
+              <div className="product-quantity">{cartProductQuantity}</div>
+            )}
           </div>
         </Link>
       </div>
@@ -54,7 +56,7 @@ export default function Product(props: { details: IProduct }) {
                     name: details.name,
                     price: details.price,
                     image: details.image,
-                  }),
+                  })
                 )
               }
             >
@@ -72,7 +74,7 @@ export default function Product(props: { details: IProduct }) {
                 name: details.name,
                 price: details.price,
                 image: details.image,
-              }),
+              })
             )
           }
         >
@@ -80,5 +82,5 @@ export default function Product(props: { details: IProduct }) {
         </Button>
       </div>
     </div>
-  );
+  )
 }

@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
-import { cartCountSelector } from "@/store/cart";
-import { ICartState } from "@/types/Cart";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useSelector } from "react-redux"
+import { cartCountSelector } from "@/store/cart"
+import { ICartState } from "@/types/Cart"
 
 export default function Navbar() {
-  const cart = useSelector((state: { cart: ICartState }) => state.cart);
-  const cartCount = cartCountSelector(cart);
+  const cart = useSelector((state: { cart: ICartState }) => state.cart)
+  const cartCount = cartCountSelector(cart)
 
-  const pathname = usePathname();
+  const pathname = usePathname()
   return (
     <nav className="navbar">
       <Link href="/" className="nav-brand">
@@ -24,18 +24,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              href="/products"
-              className={pathname == "/products" ? "active" : ""}
-            >
+            <Link href="/products" className={pathname == "/products" ? "active" : ""}>
               Products
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              href="/about"
-              className={pathname == "/about" ? "active" : ""}
-            >
+            <Link href="/about" className={pathname == "/about" ? "active" : ""}>
               About
             </Link>
           </li>
@@ -47,5 +41,5 @@ export default function Navbar() {
         </ul>
       </div>
     </nav>
-  );
+  )
 }

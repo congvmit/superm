@@ -1,21 +1,21 @@
-import clsx from "clsx";
+import clsx from "clsx"
 
 type InputProps = {
-  className?: string;
-  placeholder?: string;
-  required?: boolean;
-  type?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  className?: string
+  placeholder?: string
+  required?: boolean
+  type?: string
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 export default function Input(props: InputProps) {
-  const { className, placeholder, required, type = "text", ...rest } = props;
+  const { className, placeholder, required, type = "text", ...rest } = props
 
   const classNames = clsx(
     {
       input: true,
     },
-    className,
-  );
+    className
+  )
 
   return (
     <>
@@ -34,5 +34,5 @@ export default function Input(props: InputProps) {
         </div>
       </label>
     </>
-  );
+  )
 }

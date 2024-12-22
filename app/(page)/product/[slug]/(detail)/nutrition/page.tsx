@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { useOutletContext } from "@/context/OutletContext";
-import { IProductDetails } from "@/types/ProductDetails";
+import { useOutletContext } from "@/context/OutletContext"
+import { IProductDetails } from "@/types/ProductDetails"
 
 export default function ProductDetailNutrition() {
-  const product = useOutletContext() as IProductDetails;
-  const nutrition = product.nutrition;
+  const product = useOutletContext() as IProductDetails
+  const nutrition = product.nutrition
 
   return nutrition ? (
     <table className="table table-nutrition">
@@ -36,5 +36,5 @@ export default function ProductDetailNutrition() {
     </table>
   ) : (
     <p>No nutrition information available.</p>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 
 export default function useFetch(baseUrl: string) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   function get(url: string) {
     return new Promise((resolve, reject) => {
@@ -9,17 +9,17 @@ export default function useFetch(baseUrl: string) {
         .then((response) => response.json())
         .then((data) => {
           if (!data) {
-            setLoading(false);
-            return reject(data);
+            setLoading(false)
+            return reject(data)
           }
-          setLoading(false);
-          resolve(data);
+          setLoading(false)
+          resolve(data)
         })
         .catch((error) => {
-          setLoading(false);
-          reject(error);
-        });
-    });
+          setLoading(false)
+          reject(error)
+        })
+    })
   }
 
   function post(url: string, body: unknown) {
@@ -34,18 +34,18 @@ export default function useFetch(baseUrl: string) {
         .then((response) => response.json())
         .then((data) => {
           if (!data) {
-            setLoading(false);
-            return reject(data);
+            setLoading(false)
+            return reject(data)
           }
-          setLoading(false);
-          resolve(data);
+          setLoading(false)
+          resolve(data)
         })
         .catch((error) => {
-          setLoading(false);
-          reject(error);
-        });
-    });
+          setLoading(false)
+          reject(error)
+        })
+    })
   }
 
-  return { get, post, loading };
+  return { get, post, loading }
 }

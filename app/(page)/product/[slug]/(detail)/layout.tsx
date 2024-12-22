@@ -1,24 +1,20 @@
-"use client";
+"use client"
 
-import { IProductDetails } from "@/types/ProductDetails";
-import Image from "next/image";
-import { useParams } from "next/navigation";
-import { usePathname } from "next/navigation";
-import { useOutletContext } from "@/context/OutletContext";
-import Link from "next/link";
+import { IProductDetails } from "@/types/ProductDetails"
+import Image from "next/image"
+import { useParams } from "next/navigation"
+import { usePathname } from "next/navigation"
+import { useOutletContext } from "@/context/OutletContext"
+import Link from "next/link"
 
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
-export default function ProductDetailTableLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const pathname = usePathname();
-  const product = useOutletContext() as IProductDetails;
+export default function ProductDetailTableLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
+  const product = useOutletContext() as IProductDetails
   // Ref: https://nextjs.org/docs/app/api-reference/functions/use-params
-  const params = useParams<{ slug: string }>();
-  const slug = params.slug;
+  const params = useParams<{ slug: string }>()
+  const slug = params.slug
   return (
     <>
       <div className="product-details-layout">
@@ -47,9 +43,7 @@ export default function ProductDetailTableLayout({
               <li>
                 <Link
                   href={`/product/${slug}/nutrition`}
-                  className={
-                    pathname == `/product/${slug}/nutrition` ? "tab-active" : ""
-                  }
+                  className={pathname == `/product/${slug}/nutrition` ? "tab-active" : ""}
                 >
                   Nutrition
                 </Link>
@@ -57,9 +51,7 @@ export default function ProductDetailTableLayout({
               <li>
                 <Link
                   href={`/product/${slug}/storage`}
-                  className={
-                    pathname == `/product/${slug}/storage` ? "tab-active" : ""
-                  }
+                  className={pathname == `/product/${slug}/storage` ? "tab-active" : ""}
                 >
                   Storage
                 </Link>
@@ -70,5 +62,5 @@ export default function ProductDetailTableLayout({
         </div>
       </div>
     </>
-  );
+  )
 }

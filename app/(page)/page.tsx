@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -10,8 +10,8 @@ export default function Home() {
         <div>
           <h1>Online shopping simplified</h1>
           <p>
-            Order your groceries from <em>SuperM</em> with our easy to use app,
-            and get your products delivered straight to your doorstep.
+            Order your groceries from <em>SuperM</em> with our easy to use app, and get your
+            products delivered straight to your doorstep.
           </p>
 
           <Link href="/products" className="btn btn-default">
@@ -28,5 +28,5 @@ export default function Home() {
         />
       </div>
     </>
-  );
+  )
 }

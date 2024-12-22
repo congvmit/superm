@@ -1,10 +1,10 @@
-"use client";
-import Button from "./Button";
-import Image from "next/image";
-import { IProduct } from "@/types/Product";
+"use client"
+import Button from "./Button"
+import Image from "next/image"
+import { IProduct } from "@/types/Product"
 
 export default function ProductDetail(props: { details: IProduct }) {
-  const { details } = props;
+  const { details } = props
   return (
     // Product Image
     <div className="product">
@@ -36,5 +36,5 @@ export default function ProductDetail(props: { details: IProduct }) {
         <Button outline>${details.price}</Button>
       </div>
     </div>
-  );
+  )
 }
