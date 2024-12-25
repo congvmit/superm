@@ -2,7 +2,7 @@ import clsx from "clsx"
 
 type InputProps = {
   className?: string
-  placeholder?: string
+  placeholder?: string 
   required?: boolean
   type?: string
 } & React.InputHTMLAttributes<HTMLInputElement>

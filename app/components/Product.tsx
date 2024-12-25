@@ -31,7 +31,12 @@ export default function Product(props: { details: IProduct }) {
           />
           <div className="product-quantity-container">
             {cartProductQuantity > 0 && (
-              <div className="product-quantity">{cartProductQuantity}</div>
+              <div 
+                className="product-quantity"
+                data-testid={`quantity-${details.id}`}
+              >
+                {cartProductQuantity}
+              </div>
             )}
           </div>
         </Link>
@@ -48,6 +53,7 @@ export default function Product(props: { details: IProduct }) {
             <Button
               outline
               className="product-delete"
+              data-testid={`remove-from-cart-${details.id}`}
               onClick={() =>
                 dispatch(
                   removeProduct({
@@ -66,6 +72,7 @@ export default function Product(props: { details: IProduct }) {
         </div>
         <Button
           outline
+          data-testid={`add-to-cart-${details.id}`}
           onClick={() =>
             dispatch(
               addProduct({
