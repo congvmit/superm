@@ -14,10 +14,10 @@ export default function ProductPageLayout({ children }: { children: ReactNode })
   const [product, setProduct] = useState<IProductDetails>({})
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { get, loading } = useFetch("https://react-tutorial-demo.firebaseio.com/")
+  const { get, loading } = useFetch(process.env.NEXT_PUBLIC_API_URL || '')
 
   useEffect(() => {
-    get(`productinfo/id${slug}.json`)
+    get(`products/${slug}`)
       .then((data): void => {
         setProduct(data as IProductDetails)
         console.log(data)

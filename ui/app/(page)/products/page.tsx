@@ -9,10 +9,10 @@ import Loader from "@/components/Loader"
 export default function ProductsPage() {
   const [products, setProducts] = useState<IProduct[]>([])
 
-  const { get, loading } = useFetch("https://react-tutorial-demo.firebaseio.com/")
-
+  const { get, loading } = useFetch(process.env.NEXT_PUBLIC_API_URL || '')
+  
   useEffect(() => {
-    get("supermarket.json")
+    get("products")
       .then((data): void => {
         setProducts(data as IProduct[])
       })
